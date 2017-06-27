@@ -3,8 +3,9 @@ const Store = mongoose.model('Store');
 
 exports.homePage = (req, res) => {
   
-  req.flash('info','something');
+  // req.flash('info','something');
   res.render('index',{name : 'behnam'}); 
+
 }
 
 exports.addStore = (req, res) => {
@@ -13,6 +14,7 @@ exports.addStore = (req, res) => {
 
 exports.createStore = async (req, res)=>{
   const store = new Store(req.body);
+  
   await store.save();
 
   req.flash('success',`successfullt ${store.name}`);
