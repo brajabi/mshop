@@ -17,7 +17,7 @@ exports.createStore = async (req, res)=>{
   
   await store.save();
 
-  req.flash('success',`successfullt ${store.name}`);
+  // req.flash('success',`successfullt ${store.name}`);
   res.redirect('/');
   
 }
