@@ -24,7 +24,7 @@ exports.createStore = async (req, res)=>{
 
 exports.getStores = async (req,res) =>{
   const stores = await Store.find();
-  console.log(stores);
+  // console.log(stores);
   res.render('stores',{title: 'Stores' , stores});
 }
 
@@ -32,7 +32,7 @@ exports.editStores = async (req,res) =>{
   const id = req.params.id; 
   const store = await Store.findOne({_id:id});
   
-  console.log(store);
+  // console.log(store);
   res.render('editStore',{title: 'Stores' , store});
 }
 
@@ -43,6 +43,6 @@ exports.updateStores = async (req,res) =>{
     runValidator: true
   }).exec();
   req.flash('success','successfully saved in data base');
-  console.log(store);
+  // console.log(store);
   res.redirect(`/stores/${store._id}/edit`);
 }
