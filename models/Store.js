@@ -17,7 +17,16 @@ const storeSchema = new mongoose.Schema({
   tags: [String]
 }); 
 
- 
+ const userSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    trim: true,
+    required: 'please enter'
+  },
+  name: String, 
+  address: String
+}); 
+
 storeSchema.pre('save',function(next){
   if(!this.isModified('name'))
   {
